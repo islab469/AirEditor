@@ -6,6 +6,7 @@ using Firebase.Extensions;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 
 public class ContentC : MonoBehaviour
@@ -20,11 +21,7 @@ public class ContentC : MonoBehaviour
         LoadImage();
 
     }
-    /// <summary>
-    /// db = firestore.client()
-    /// document_ref = db.collection('users').document(upload_instance.userid)
-    /// uploads_ref = document_ref.collection('AIcontents').document(str(upload_instance.id))#開子集合
-    /// </summary>
+
     void LoadImage()
     {
         string email = FirebaseManager.getEmail();
@@ -81,7 +78,7 @@ public class ContentC : MonoBehaviour
     void OnPrefabClicked(string imageUrl)
     {
         PlayerPrefs.SetString("SelectedImageURL", imageUrl);
-        SceneSystem.changeScene(SceneType.SCENE_CREATE_PROJECT);
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator LoadImage(string url, Image imageComponent)
