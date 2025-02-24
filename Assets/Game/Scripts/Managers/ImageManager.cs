@@ -30,7 +30,17 @@ class ImageManager : MonoBehaviour
         UpdateModelImage();
     }
 
+    private int lastModelID = -1;
 
+    private void Update()
+    {
+        int currentModelID = PlayerPrefs.GetInt("SelectedModel", 0);
+        if (currentModelID != lastModelID)
+        {
+            lastModelID = currentModelID;
+            UpdateModelImage();
+        }
+    }
     private void UpdateModelImage()
     {
         Animal selectedModel = (Animal)PlayerPrefs.GetInt("SelectedModel", 0); // 默認為狗模型
@@ -40,16 +50,15 @@ class ImageManager : MonoBehaviour
         currentSprite = sprite;
     }
 
-    public void UploadImage() // 用於處理上傳圖片的按鈕
+    public void UploadImage()
     {
-        // 這裡應該包含用戶上傳圖片的邏輯，並將路徑保存到 PlayerPrefs
-        string path = "你的圖片路徑"; // 根據上傳邏輯獲取實際圖片路徑
+        string path = "你的圖片路徑";
         PlayerPrefs.SetString("UploadedImagePath", path);
-        PlayerPrefs.Save(); // 確保儲存成功
+        PlayerPrefs.Save();
 
         Debug.Log($"【上傳圖片】路徑：{path}");
 
-        UpdateModelImage(); // 更新顯示圖片
+        UpdateModelImage(); // 上傳後立即更新
     }
 
     public Sprite GetCurrentSprite()
