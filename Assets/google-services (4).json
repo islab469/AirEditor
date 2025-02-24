@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "249737401739",
+    "firebase_url": "https://air-director-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "air-director",
+    "storage_bucket": "air-director.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249737401739:android:9d8f51438ba90307a40b8e",
+        "android_client_info": {
+          "package_name": "com.rgame.firebasetutorial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVxoGdfk1y7c0ZX1VGR_g5Xsi2z8xw1H8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

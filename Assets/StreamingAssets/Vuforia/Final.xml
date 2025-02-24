@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig>
+  <Tracking>
+    <ImageTarget name="tiger" size="1.000000 1.000000" />
+    <ImageTarget name="chicken" size="1.000000 1.000000" />
+    <ImageTarget name="cat" size="1.000000 1.000000" />
+    <ImageTarget name="deer" size="1.000000 1.000000" />
+    <ImageTarget name="horse" size="1.000000 1.000000" />
+    <ImageTarget name="dog" size="1.000000 1.000000" />
+    <ImageTarget name="penguin" size="1.000000 1.000000" />
+    <ImageTarget name="zebra" size="1.000000 0.750000" />
+    <ImageTarget name="starfish" size="1.000000 0.667500" />
+    <ImageTarget name="shark" size="1.000000 0.600000" />
+    <ImageTarget name="pig" size="1.000000 0.910638" />
+    <ImageTarget name="monkey" size="1.000000 1.382199" />
+    <ImageTarget name="panda" size="1.000000 0.596354" />
+    <ImageTarget name="fox" size="1.000000 0.617094" />
+    <ImageTarget name="21" size="1.000000 1.733333" />
+    <ImageTarget name="20" size="1.000000 1.000000" />
+    <ImageTarget name="19" size="1.000000 1.000000" />
+    <ImageTarget name="18" size="1.000000 1.000000" />
+    <ImageTarget name="17" size="1.000000 1.000000" />
+    <ImageTarget name="16" size="1.000000 1.000000" />
+    <ImageTarget name="15" size="1.000000 1.000000" />
+    <ImageTarget name="14" size="1.000000 1.000000" />
+    <ImageTarget name="13" size="1.000000 1.000000" />
+    <ImageTarget name="12" size="1.000000 1.000000" />
+    <ImageTarget name="11" size="1.000000 1.000000" />
+    <ImageTarget name="10" size="1.000000 1.000000" />
+    <ImageTarget name="9" size="1.000000 1.000000" />
+    <ImageTarget name="8" size="1.000000 1.000000" />
+    <ImageTarget name="7" size="1.000000 1.000000" />
+    <ImageTarget name="6" size="1.000000 1.000000" />
+    <ImageTarget name="5" size="1.000000 1.000000" />
+    <ImageTarget name="4" size="0.100000 0.100000" />
+    <ImageTarget name="3" size="1.000000 1.000000" />
+    <ImageTarget name="2" size="1.000000 1.000000" />
+    <ImageTarget name="1" size="1.000000 1.000000" />
+  </Tracking>
+</QCARConfig>
