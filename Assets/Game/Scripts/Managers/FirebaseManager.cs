@@ -11,22 +11,42 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.CompilerServices; // 引入 Firestore 命名空間
 
 public class FirebaseManager : MonoBehaviour
-{ 
+{
+    public static FirebaseManager Instance { get; private set; }
+
     public static FirebaseAuth auth; // Firebase 認證實例
     public static FirebaseFirestore firestore; // Firestore 參考
     public static FirebaseUser user; // 當前用戶
     public static DatabaseReference databaseReference; // 實時數據庫引用
-    public static FirebaseManager instance;
+
 
     public static string email;
     public static string password;
-
     public  GameObject PanelLogin;
     public  GameObject PanelSelection;
 
+    void Start()
+    {
+       //PanelSelection.SetActive(false);
+    }
 
-    public static void checkAndStart(){
-        if (auth != null){
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public static void checkAndStart()
+    {
+        if (auth != null)
+        {
 
             return;
         }
@@ -60,10 +80,10 @@ public class FirebaseManager : MonoBehaviour
     {
         // 創建用戶
         AuthResult authResult = await auth.CreateUserWithEmailAndPasswordAsync(email, password);
-        
+
         WriteUserToFirestore(email, "New User");
         Debug.Log("用戶資料寫入 Firestore 成功！");
-        return true; 
+        return true;
     }
 
     // 用戶登錄
@@ -83,45 +103,28 @@ public class FirebaseManager : MonoBehaviour
     // 認證狀態變化處理
     private static void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
-        Debug.Log("AuthStateChanged 被觸發"); // 確保事件有執行
-
+        // 檢查當前用戶是否發生變化
         if (auth.CurrentUser != user)
         {
             user = auth.CurrentUser;
             if (user != null)
             {
-                Debug.Log($"用戶已登入：{user.Email}");
-                instance.StartCoroutine(instance.SwitchPanel(false)); // 🔹 使用協程來確保 UI 更新
+                Instance.PanelLogin.SetActive(false);
+                Instance.PanelSelection.SetActive(true);
+                Debug.Log($"用戶已登錄 - {user.Email}");
             }
             else
             {
+                Instance.PanelLogin.SetActive(true);
+                Instance.PanelSelection.SetActive(false);
                 Debug.Log("用戶已登出");
-                instance.StartCoroutine(instance.SwitchPanel(true)); // 🔹 使用協程來確保 UI 更新
             }
         }
     }
-
-    private IEnumerator SwitchPanel(bool showLogin)
-    {
-        yield return new WaitForSeconds(0.1f); // 🔹 確保 UI 更新
-
-        Debug.Log($"切換 UI - PanelLogin: {showLogin}, PanelSelection: {!showLogin}");
-
-        PanelLogin.SetActive(showLogin);
-        PanelSelection.SetActive(!showLogin);
-    }
-
-    void Awake()
-    {
-        instance = this;
-        Debug.Log($"FirebaseManager 初始化 - PanelLogin: {PanelLogin}, PanelSelection: {PanelSelection}");
-    }
-
-
     // 寫入新用戶資料到 Firestore
     public static async void WriteUserToFirestore(string email, string displayName)
     {
-        
+
         if (firestore == null)
         {
             Debug.LogError("Firestore 物件為 null，無法寫入數據。");
@@ -132,8 +135,8 @@ public class FirebaseManager : MonoBehaviour
         Debug.Log("準備寫入用戶資料至 Firestore");
 
         DocumentReference document = firestore.Collection("users").Document(email);
-        
-        
+
+
         Debug.Log("獲取 DocumentReference 成功");
 
         Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
@@ -145,14 +148,16 @@ public class FirebaseManager : MonoBehaviour
     // User 類別用於資料結構
 
     // get email with error checking
-    public static string getEmail() {
-        
+    public static string getEmail()
+    {
+
         return user != null ? user.Email : null;
     }
 
-    public static bool isLogin() { 
+    public static bool isLogin()
+    {
 
         return auth != null && auth.CurrentUser != null;
     }
-    
+
 }

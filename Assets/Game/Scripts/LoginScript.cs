@@ -18,6 +18,8 @@ public class LoginScript : MonoBehaviour
 
     [SerializeField]
     bool debugMode = false;
+    string userEmail = FirebaseManager.getEmail();
+
     // 註冊用戶的方法
     private void Start()
     {

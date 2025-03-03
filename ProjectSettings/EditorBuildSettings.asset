@@ -6,28 +6,28 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Login.unity
+    path: Assets/Game/Scenes/Login.unity
     guid: 3975d8bab6ee2fb448417a34af8be8c3
   - enabled: 1
-    path: Assets/Scenes/ChooseImage.unity
+    path: Assets/Game/Scenes/ChooseImage.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/3DModel.unity
+    path: Assets/Game/Scenes/3DModel.unity
     guid: 4f79e33937ab67c4e91ed7d39ba6048b
   - enabled: 1
-    path: Assets/Scenes/CreatProject.unity
+    path: Assets/Game/Scenes/CreatProject.unity
     guid: 1f393cdc7e299a3479c0fb8b2d4c5cc9
   - enabled: 1
-    path: Assets/Scenes/AIQA.unity
+    path: Assets/Game/Scenes/AIQA.unity
     guid: 76962a3c418f31f4bb57a833383081e9
   - enabled: 1
-    path: Assets/Scenes/AIquestion.unity
+    path: Assets/Game/Scenes/AIquestion.unity
     guid: 6aa04d693cf61ca44a1542ffeed1238f
   - enabled: 1
-    path: Assets/Scenes/EditProject.unity
+    path: Assets/Game/Scenes/EditProject.unity
     guid: 7ee1a60983593914dab73fe2546d8adc
   - enabled: 1
-    path: Assets/Scenes/ProjectInterface.unity
+    path: Assets/Game/Scenes/ProjectInterface.unity
     guid: f7530c3f5c12c224abb94a2a63963a96
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 4a18ad04c6dec234892d5522606a3e9e, type: 2}
