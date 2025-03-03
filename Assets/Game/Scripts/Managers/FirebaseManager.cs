@@ -16,10 +16,13 @@ public class FirebaseManager : MonoBehaviour
     public static FirebaseFirestore firestore; // Firestore 參考
     public static FirebaseUser user; // 當前用戶
     public static DatabaseReference databaseReference; // 實時數據庫引用
-    
+    public static FirebaseManager instance;
 
     public static string email;
     public static string password;
+
+    public  GameObject PanelLogin;
+    public  GameObject PanelSelection;
 
 
     public static void checkAndStart(){
@@ -80,20 +83,41 @@ public class FirebaseManager : MonoBehaviour
     // 認證狀態變化處理
     private static void AuthStateChanged(object sender, System.EventArgs eventArgs)
     {
-        // 檢查當前用戶是否發生變化
+        Debug.Log("AuthStateChanged 被觸發"); // 確保事件有執行
+
         if (auth.CurrentUser != user)
         {
             user = auth.CurrentUser;
             if (user != null)
             {
-                Debug.Log($"用戶已登錄 - {user.Email}");
+                Debug.Log($"用戶已登入：{user.Email}");
+                instance.StartCoroutine(instance.SwitchPanel(false)); // 🔹 使用協程來確保 UI 更新
             }
             else
             {
                 Debug.Log("用戶已登出");
+                instance.StartCoroutine(instance.SwitchPanel(true)); // 🔹 使用協程來確保 UI 更新
             }
         }
     }
+
+    private IEnumerator SwitchPanel(bool showLogin)
+    {
+        yield return new WaitForSeconds(0.1f); // 🔹 確保 UI 更新
+
+        Debug.Log($"切換 UI - PanelLogin: {showLogin}, PanelSelection: {!showLogin}");
+
+        PanelLogin.SetActive(showLogin);
+        PanelSelection.SetActive(!showLogin);
+    }
+
+    void Awake()
+    {
+        instance = this;
+        Debug.Log($"FirebaseManager 初始化 - PanelLogin: {PanelLogin}, PanelSelection: {PanelSelection}");
+    }
+
+
     // 寫入新用戶資料到 Firestore
     public static async void WriteUserToFirestore(string email, string displayName)
     {

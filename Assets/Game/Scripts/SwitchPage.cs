@@ -52,7 +52,7 @@ public class SwitchPage : MonoBehaviour
     {
         Debug.Log("call SwitchLobby");
         curnPage = Page.LENGTH;
-        SceneSystem.changeScene(SceneType.SCENE_LOGIN); // 切換到 Lobby 場景
+        SceneManager.LoadScene(0); // 切換到 LOGIN 場景
     }
 
     public void Switch3DModel()
