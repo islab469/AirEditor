@@ -9,10 +9,13 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
+<<<<<<< HEAD
 /Assets/Firebase/
 
 /Assets/Plugins/
 /Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_5_0.bundle
+=======
+>>>>>>> 55e637fa89addcb93e1ece385128624da9a07d64
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -63,6 +66,10 @@ sysinfo.txt
 *.apk
 *.aab
 *.unitypackage
+<<<<<<< HEAD
+=======
+*.unitypackage.meta
+>>>>>>> 55e637fa89addcb93e1ece385128624da9a07d64
 *.app
 
 # Crashlytics generated file
