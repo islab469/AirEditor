@@ -11,6 +11,9 @@
 /[Uu]ser[Ss]ettings/
 /Assets/Firebase/
 
+/Assets/Plugins/
+/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-11_5_0.bundle
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
